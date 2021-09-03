@@ -10,4 +10,3 @@ public class PersonNotFoundException extends Exception {
         super("Person not found with ID " + id);
     }
 }
-
