@@ -25,6 +25,11 @@ public class PersonController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public MessageReponseDTO createdPerson(@RequestBody @Valid PersonDTO personDTO) {
-        return personService.gcreatedPerson(personDTO);
+        return personService.createPerson(personDTO);
+    }
+
+    @GetMapping
+    public List<PersonDTO> listAll() {
+        return personService.listAll();
     }
 }
