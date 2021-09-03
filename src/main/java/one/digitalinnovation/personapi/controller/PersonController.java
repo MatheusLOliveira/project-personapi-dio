@@ -1,12 +1,14 @@
 package one.digitalinnovation.personapi.controller;
 
 import one.digitalinnovation.personapi.dto.MessageReponseDTO;
+import one.digitalinnovation.personapi.dto.request.PersonDTO;
 import one.digitalinnovation.personapi.entities.Person;
 import one.digitalinnovation.personapi.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +24,7 @@ public class PersonController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageReponseDTO createdPerson(@RequestBody Person person) {
-        return personService.createdPerson(person);
+    public MessageReponseDTO createdPerson(@RequestBody @Valid PersonDTO personDTO) {
+        return personService.gcreatedPerson(personDTO);
     }
 }
